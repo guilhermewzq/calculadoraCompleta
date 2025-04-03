@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Space Mono, serif";
+    font-family: "Space Mono", monospace;
 }
 
 :root{
@@ -15,7 +15,9 @@
     --green-700:   #3d6666;
     --green-800:   #00474b;
     --light-green: #26c2ae;
+    --green-hover: #9fe8df;
     --white:       #ffff;
+    --danger:      #e17457;
 }
 
 
@@ -43,7 +45,7 @@ main {
 }
 
 .conta div,
-.pessoas div {
+.pessoas .input-box {
     margin-top: 0.4rem;
     background-color: var(--green-100);
     padding: 0.4rem 1.2rem;
@@ -70,9 +72,12 @@ main {
     color:var(--green-300);
 }
 
-.conta:has(input:focus) div,
-.pessoas:has(input:focus) div {
-    outline: 2px solid var(--light-green);
+.conta:has(input:focus) div, 
+.conta:has(input:hover) div,
+.pessoas:has(input:focus) .input-box,
+.pessoas:has(input:hover) .input-box{
+
+outline: 2px solid var(--light-green);
 }
 
 .conta, 
@@ -105,12 +110,25 @@ main {
     color: var(--green-800)
 }
 
-.gorjeta #outra::placeholder{
-    color: var(--green-300)
+.gorjeta #outra::placeholder {
+    color: var(--green-300);
+    cursor: pointer;
 }
 
+.pessoas .erro {
+    outline: 2px solid var(--danger);
+}
+ 
 .pessoas #erro {
-    display: none;
+  font-size: 0.75rem;
+  color: var(--danger);
+  font-weight: 700;
+}
+
+.pessoas .textos {
+    display: flex;
+    align-items: none;
+    justify-content: space-between;
 }
 
 .resultados {
@@ -165,6 +183,22 @@ main {
 
 }
 
+.conta input::-webkit-inner-spin-button,
+.pessoas input::-webkit-inner-spin-button,
+.gorjeta #outra::-webkit-inner-spin-button {
+    display: none;
+}
+
+.gorjeta input[type="button"]:hover,
+.resultados button:hover {
+    background-color: var(--green-hover);
+    cursor: pointer;
+}
+
+#outra:focus {
+    outline: 2px solid var(--light-green);
+}
+
 @media(min-width: 920px){
     main {
         display: flex;
@@ -196,10 +230,6 @@ main {
         padding: 0;
     }
 
-    .conta input::-webkit-inner-spin-button,
-    .pessoas input::-webkit-inner-spin-button {
-        display: none;
-    }
 
     .resultados {
         display: flex;
@@ -210,4 +240,5 @@ main {
     .resultados div > strong {
      font-size: 3rem;
     }
+    
 }
