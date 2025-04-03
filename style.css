@@ -115,7 +115,7 @@ outline: 2px solid var(--light-green);
     cursor: pointer;
 }
 
-.pessoas .erro {
+.pessoas #erro-div {
     outline: 2px solid var(--danger);
 }
  
@@ -123,6 +123,7 @@ outline: 2px solid var(--light-green);
   font-size: 0.75rem;
   color: var(--danger);
   font-weight: 700;
+  display: none;
 }
 
 .pessoas .textos {
